@@ -1,5 +1,14 @@
 {% extends "bootstrap/base.html" %}
 
+{% block title %}Romo's Towing{% endblock %}
+{% block styles %}{% endblock %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+{% block head %}
+{{super()}}
+{{fixes.ie8()}}
+{% endblock %}
+
 {% block navbar %}
 <nav class="nav">
   <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
@@ -8,4 +17,7 @@
 {% endblock %}
 
 {% block content %}
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}
