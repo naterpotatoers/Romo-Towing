@@ -15,8 +15,14 @@ body {
 }
 
 #mainHeader {
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #333;
   color: red;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
 }
 
 #mainNav {
@@ -43,5 +49,29 @@ body {
   font-size: 18px;
 }
 #mainNav li:hover {
-  background: #aaa;
+  background: red;
+}
+
+#mainFooter {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+#fixed {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  background:#ff652f;
+  padding: 5px;
+}
+
+@media (max-width:600px){
+  #main, #sidebar {
+    width: 100%;
+    float: none;
+    border: none;
+  }
 }
