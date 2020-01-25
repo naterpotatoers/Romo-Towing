@@ -5,29 +5,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Romo's Towing</title>
+  <title>Romo's Towing Fresno CA</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='./css/base.css')}}">
 </head>
 
 <body>
-  <div>
-    Romo's Towing:
-    <a href="{{ url_for('home') }}">Home</a>
-    <a href="{{ url_for('pricing')}}">Pricing</a>
-    <a href="{{ url_for('vehicleEntry')}}">Vehicle Entry</a>
+  <header id="mainHeader">
+    <div class="container">
+      <h1>Romo's Towing</h1>
+    </div>
+  </header>
+
+  <nav id="mainNav">
+    <div class="container">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('pricing')}}">Pricing</a></li>
+        <li><a href="{{ url_for('vehicleEntry')}}">Vehicle Entry</li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="flashedMessages">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
   </div>
-  <hr>
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
 
   {% block content %}
   {% endblock %}
+
+
+  <footer id="mainFooter">
+    <p>Copyright &copy; 2020 Romo's Towing Website - Fresno CA </p>
+  </footer>
 
 </body>
 
