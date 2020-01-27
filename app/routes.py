@@ -32,21 +32,22 @@ def pricing():
         if(form.onLot.data):
             price += outside_storage_fee
         price += form.towHours.data * hourly_fow_fee + tow_fee
-        return render_template('pricing.html', form=form, value=price) 
-    return render_template('pricing.html', form=form) 
-
-
-
-
-
+        return render_template('form.html', title="Price Estimator", form=form, value=price) 
+    return render_template('form.html', title="Price Estimator", form=form) 
 
 @app.route('/VehicleEntry', methods=['GET', 'POST'])
 def vehicleEntry():
     form = VehicleForm()
     if form.validate_on_submit():      
         vehicle = Vehicle(year=form.year.data, make=form.make.data, model=form.model.data, vin=form.vin.data)
+        # , arrivalDate=form.arrivalDate.data)
         db.session.add(vehicle)
         db.session.commit()
         flash('Vehicle Submitted!')
         return redirect(url_for('vehicleEntry'))
-    return render_template('pricing.html', form=form)
+    return render_template('form.html', title='Vehicle Form Entry', form=form)
+
+
+@app.route('/Contact')
+def contact():
+    return render_template('contact.html', title='Contact Us')

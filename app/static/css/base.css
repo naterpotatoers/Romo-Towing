@@ -15,14 +15,25 @@ body {
 }
 
 #mainHeader {
-  /* height: 100vh; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: justify;
+  text-align: justify;
   background: #333;
   color: red;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 2rem;
+  font-family: Verdana, 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+}
+
+h2 {
+  color:red;
+}
+
+h2::before {
+  content: '';
+}
+
+h2::after {
+  content: '';
 }
 
 #mainNav {
@@ -43,6 +54,7 @@ body {
   display: inline;
   padding: 5px 10px;
 }
+
 #mainNav a {
   color: black;
   text-decoration: none;
@@ -51,6 +63,31 @@ body {
 #mainNav li:hover {
   background: red;
 }
+
+#mainNav::before {
+  content: '';
+  position: relative;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: white;
+  border: blue;
+  z-index: -1;
+}
+
+#mainNav::after {
+  content: '';
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: orange;
+  z-index: -2;
+}
+
+.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
 
 #mainFooter {
   background: #333;
@@ -64,7 +101,7 @@ body {
   position: fixed;
   bottom: 0;
   right: 50px;
-  background:#ff652f;
+  background:red;
   padding: 5px;
 }
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Romo's Towing Fresno CA</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='./css/base.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='./css/base.css') }}">
 </head>
 
 <body>
@@ -22,30 +22,30 @@
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('pricing')}}">Pricing</a></li>
         <li><a href="{{ url_for('vehicleEntry')}}">Vehicle</li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="{{ url_for('contact')}}">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="flashedMessages">
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-  </div>
+  <section class="content">
+    <header>
+      {% if title %}
+      {% block header %} <h2>{{title}} </h2> {% endblock %}
+      {% endif %}
+    </header>
 
-  {% block content %}
-  {% endblock %}
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
 
-  <div id="fixed">Fixed Element</div>
+    {% block content %}{% endblock %}
+  </section>
+
+
+  <div id="fixed">(559)275-4823</div>
 
   <footer id="mainFooter">
-    <p>Copyright &copy; 2020 Romo's Towing Website - Fresno CA </p>
+    <p>Copyright &copy; 2020 Romo's Towing - Fresno CA </p>
   </footer>
 
 </body>
