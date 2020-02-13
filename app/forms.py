@@ -7,12 +7,11 @@ class VehicleForm(FlaskForm):
     year = StringField('Year', validators=[DataRequired()])
     make = StringField('Make', validators=[DataRequired()])
     model = StringField('Model', validators=[DataRequired()])
-    vin = StringField('VIN', validators=[DataRequired()])
-    # arrivalDate = DateField('DatePicker', format='%Y-%m-%d', validators=[DataRequired()])
+    milage = StringField('Milage', validators=[DataRequired()])
+    info = TextAreaField('Info', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class PriceEstimatorForm(FlaskForm):
-    # print('Please Select Only One Box.')
     chpTow = BooleanField('Is this a CHP Tow?', validators=[Optional()])
     fpdTow = BooleanField('Is this a FPD Tow?', validators=[Optional()])
     onLot = BooleanField("Towed to our Tow Yard?(Ignore if CHP or FPD tow)", validators=[Optional()])

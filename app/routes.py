@@ -39,13 +39,12 @@ def pricing():
 def vehicleEntry():
     form = VehicleForm()
     if form.validate_on_submit():      
-        vehicle = Vehicle(year=form.year.data, make=form.make.data, model=form.model.data, vin=form.vin.data)
-        # , arrivalDate=form.arrivalDate.data)
+        vehicle = Vehicle(year=form.year.data, make=form.make.data, model=form.model.data, milage=form.milage.data, info=form.info.data)
         db.session.add(vehicle)
         db.session.commit()
         flash('Vehicle Submitted!')
         return redirect(url_for('vehicleEntry'))
-    return render_template('form.html', title='Vehicle Form Entry', form=form)
+    return render_template('form.html', title='Vehicles For Sale', form=form)
 
 
 @app.route('/Contact')
