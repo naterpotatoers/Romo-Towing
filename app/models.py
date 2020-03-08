@@ -9,9 +9,9 @@ class Vehicle(db.Model):
     year = db.Column(db.Integer, index=True, unique=False)
     make = db.Column(db.String(32), index=True, unique=False)
     model = db.Column(db.String(32), index=True, unique=False)
-    milage = db.Column(db.String(32), index=True, unique=True)
-    info = db.Column(db.String(500), index=True, unique=True)
+    milage = db.Column(db.String(32), index=True, unique=False)
+    info = db.Column(db.String(500), index=True, unique=False)
 
     def __repr__(self):
-        return '<For Sale: {}>'.format(self.year, self.make, self.model, self.milage)
+        return '<For Sale: {} {} {} {}>'.format(self.year, self.make, self.model, self.milage)
 

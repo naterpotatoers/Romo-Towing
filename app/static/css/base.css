@@ -112,3 +112,8 @@ h2::after {
     border: none;
   }
 }
+
+#pageTitle {
+  position: relative;
+  margin-left: 5px;
+}

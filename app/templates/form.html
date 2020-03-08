@@ -3,11 +3,12 @@
 {% block content %}
 
 {% if form %}
-{{ wtf.quick_form(form) }}
+<div id="form1">
+    {{ wtf.quick_form(form) }}
+</div>
 {% endif %}
 {% if value %}
 Estimate: {{ value }}
 {% endif %}
 
 {% endblock %}
-

@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Contact stuff here</p>
+<link rel="stylesheet" href="{{ url_for('static', filename='./css/contact.css') }}">
+
+<div id="contactInfo">
+  <h3 id="name">Romo's Towing</h3>
+  <address>4625 N. Golden State Blvd.<br /> Fresno, CA 93722</address>
+  <p id = "phoneNum">Phone: (559)275-4823</p>
+  <p>Available 24 Hours<br /> Monday - Saturday</p>
+</div>
 {% endblock %}

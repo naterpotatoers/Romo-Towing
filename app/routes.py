@@ -10,33 +10,11 @@ def home():
 
 @app.route('/Pricing', methods=['GET', 'POST'])
 def pricing():
-    form = PriceEstimatorForm()
-    price = 0.00
-
-    chp_tow_fee = 244.00
-    chp_outside_storage_fee = 59.00
-
-    fpd_tow_fee = 229.00
-    fpd_outside_storage_fee = 58.00
-
-    outside_storage_fee = 65.00
-
-    hourly_fow_fee = 270.00
-    tow_fee = 291.00
-
-    if form.validate_on_submit():
-        if(form.chpTow.data):
-            price += chp_tow_fee + chp_tow_fee
-        if(form.fpdTow.data):
-            price += fpd_tow_fee + fpd_outside_storage_fee
-        if(form.onLot.data):
-            price += outside_storage_fee
-        price += form.towHours.data * hourly_fow_fee + tow_fee
-        return render_template('form.html', title="Price Estimator", form=form, value=price) 
-    return render_template('form.html', title="Price Estimator", form=form) 
+    return render_template('pricing.html', title="Pricing") 
 
 @app.route('/VehicleEntry', methods=['GET', 'POST'])
 def vehicleEntry():
+    forSale = Vehicle.query.all()
     form = VehicleForm()
     if form.validate_on_submit():      
         vehicle = Vehicle(year=form.year.data, make=form.make.data, model=form.model.data, milage=form.milage.data, info=form.info.data)
@@ -44,7 +22,7 @@ def vehicleEntry():
         db.session.commit()
         flash('Vehicle Submitted!')
         return redirect(url_for('vehicleEntry'))
-    return render_template('form.html', title='Vehicles For Sale', form=form)
+    return render_template('form.html', title='Vehicles For Sale', form=form, forSale = forSale)
 
 
 @app.route('/Contact')
