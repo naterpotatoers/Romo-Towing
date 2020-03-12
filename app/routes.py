@@ -24,6 +24,10 @@ def vehicleEntry():
         return redirect(url_for('vehicleEntry'))
     return render_template('form.html', title='Vehicles For Sale', form=form, forSale = forSale)
 
+@app.route('/VehicleListings', methods = ['GET', 'POST'])
+def VehicleListings():
+    data = Vehicle.query.all()
+    return render_template('list.html', title='Vehicles For Sale', data = data)
 
 @app.route('/Contact')
 def contact():

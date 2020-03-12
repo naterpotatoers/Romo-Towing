@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='./css/list.css') }}">
+
+{% for item in data %}
+<tr>
+    <!-- <td>{{item.id}}</td> -->
+    <td>{{item.year}}</td>
+    <td>{{item.make}}</td>
+    <td>{{item.model}}</td>
+    <td>{{item.milage}}</td>
+    <td>{{item.info}}</td>
+    <br><br>
+</tr>
+{% endfor %}
+{% endblock %}

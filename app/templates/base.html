@@ -21,7 +21,8 @@
       <ul>
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('pricing')}}">Pricing</a></li>
-        <li><a href="{{ url_for('vehicleEntry')}}">Vehicle</li>
+        <li><a href="{{ url_for('vehicleEntry')}}">Vehicle Entry</li>
+        <li><a href="{{ url_for('VehicleListings')}}">For Sale</a></li>
         <li><a href="{{ url_for('contact')}}">Contact</a></li>
       </ul>
     </div>
@@ -35,7 +36,7 @@
     </header>
 
     {% for message in get_flashed_messages() %}
-      <div class="flash">{{ message }}</div>
+    <div class="flash">{{ message }}</div>
     {% endfor %}
 
     {% block content %}{% endblock %}
