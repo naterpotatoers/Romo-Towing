@@ -114,6 +114,5 @@ h2::after {
 }
 
 #pageTitle {
-  position: relative;
-  margin-left: 5px;
+  text-align: center;
 }

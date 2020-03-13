@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='./css/pricing.css') }}">
-
-
-<div id="pricing">
-    <h2>Please enter below.</h2>
-    <select name="Tow Type" id="towType">
-        <option value="CHP">CHP</option>
-        <option value="FPD">FPD</option>
-        <option value="Personal">Personal</option>
-    </select>
-    <button>Submit</button>
-</div>
-
 <script src="../static/js/pricing.js"></script>
+
+<form>
+    <select id="towType">
+        <option>CHP</option>
+        <option>FPD</option>
+        <option>Personal</option>
+    </select>
+    <!-- <label for="milage">Number of Hours:</label>
+    <input type="text" id="milage" name="milage"> -->
+    <br><br>
+    <input type="button" onclick="getPricing()" value="Submit">
+</form>
+
+<p id="showPrice"></p>
 {% endblock %}

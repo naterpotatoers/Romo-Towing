@@ -1,19 +1,13 @@
-var selector = document.getElementsByName("Tow Type").values;
-console.log("The value");
-console.log(selector);
-
-function whichOption()
-{
-    if (selector == "CHP")
-    {
-        console.log("CHP read");
+function getPricing() {
+    var obj = document.getElementById("towType");
+    var towType = obj.options[obj.selectedIndex].text;
+    if (towType == "CHP") {
+        document.getElementById("showPrice").innerHTML = towType + " $300";
     }
-    if (selector == "FPD")
-    {
-        console.log("FPD read");
+    else if (towType == "FPD") {
+        document.getElementById("showPrice").innerHTML = towType + " $300";
     }
-    if (selector == "Personal")
-    {
-        console.log("Personal read");
+    else {
+        document.getElementById("showPrice").innerHTML = towType + " $300/hr";
     }
 }
